@@ -2,7 +2,9 @@
 
 Using this simple repo you can generate background image (facebook, meetup.com etc)
 for your Airflow event. Additionally you can create speakers cards to promote
-the event.
+the event. 
+
+The work is based on materials that were used during [Warsaw Airflow Meetup](https://www.meetup.com/pl-PL/Warsaw-Airflow-Meetup/) and are available on [Airflow cwiki](https://cwiki.apache.org/confluence/display/AIRFLOW/Promo+stuff).
 
 ## Installation and usage
 
@@ -19,3 +21,4 @@ deps like pandas.
 - run `main.py`
 
 All pictures should appear in `content/`.
+
