@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 Usage:
-- update `speakers.csv` with information about your speakers and wit valid path to 
+- update `speakers.csv` with information about your speakers and with valid paths to 
 their photos. Note that the format of the csv should be `name,association,path_to_pic`.
 Header is ignored and the file is parsed in primitive way but I wanted to skip additional
 deps like pandas.
