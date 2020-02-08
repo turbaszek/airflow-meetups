@@ -1,10 +1,8 @@
 import os
 
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
-from PIL.PngImagePlugin import PngImageFile
+from PIL import Image, ImageDraw, ImageFont
 from PIL.ImageFont import FreeTypeFont
+from PIL.PngImagePlugin import PngImageFile
 
 from utils import draw_text_relative_to_point
 
@@ -42,7 +40,7 @@ def generate_speaker_template(
     img.paste(small_face, (54, 504))
 
     file_name = f"speaker-{name.lower().replace(' ', '-').replace(',', '')}.png"
-    path = os.path.join(dest,file_name) if dest else file_name
+    path = os.path.join(dest, file_name) if dest else file_name
     img.save(path)
     return img
 
@@ -53,4 +51,6 @@ def generate_speakers(city: str, event: str, dest: str = "content"):
             if i == 0:
                 continue
             name, association, path = l.split(",")
-            generate_speaker_template(name, association, path.strip(), city, event, dest)
+            generate_speaker_template(
+                name, association, path.strip(), city, event, dest
+            )

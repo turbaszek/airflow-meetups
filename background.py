@@ -1,10 +1,7 @@
+import os
 from datetime import datetime
 
-import os
-
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 from PIL.PngImagePlugin import PngImageFile
 
 from utils import draw_text_relative_to_point
@@ -14,10 +11,15 @@ ROBOTO = "fonts/Roboto_Mono/RobotoMono-Medium.ttf"
 
 
 def generate_background(
-    city: str, month: str, day: int, year: int = None, event: str = "Airflow Meetup", dest: str = None
-):
+    city: str,
+    month: str,
+    day: int,
+    year: int = None,
+    event: str = "Airflow Meetup",
+    dest: str = None,
+) -> PngImageFile:
     img = Image.open("templates/event-cover-fb.png")
-    img_w, img_h = img.size
+    img_w, _ = img.size
 
     # City name
     draw = ImageDraw.Draw(img)
@@ -43,7 +45,7 @@ def generate_background(
     draw_text_relative_to_point(draw, img_w / 2, 610, date_text, font, GREY, axis="x")
 
     name = f"{city}-{event}-cover.png"
-    path = os.path.join(dest,name) if dest else name
+    path = os.path.join(dest, name) if dest else name
     img.save(path)
 
     return img
